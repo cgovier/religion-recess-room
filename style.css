@@ -1,0 +1,88 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fce8cc; /* Light pumpkin/pie color */
+    color: #5a3c20; /* Dark brown text */
+    margin: 0;
+}
+
+#game-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+}
+
+h1 {
+    color: #a04000; /* Deep orange/brown */
+    margin-bottom: 10px;
+}
+
+#stats {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+#startButton {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #d68910; /* Gold/yellow-orange */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+#startButton:hover {
+    background-color: #a04000; 
+}
+
+#game-area {
+    /* Critical for containing the absolutely positioned button */
+    position: relative; 
+    width: 100%;
+    height: 300px; /* Define a visible area for movement */
+    border: 3px dashed #a04000;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
+    background-color: #fdf5e6;
+}
+
+.clickable-button {
+    position: absolute; /* Allows for random positioning */
+    padding: 15px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    background-color: #4CAF50; /* Green color for the button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px #388e3c;
+    transition: transform 0.1s;
+    user-select: none;
+}
+
+.clickable-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px #388e3c;
+}
+
+#message {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #a04000;
+    margin-top: 15px;
+}
