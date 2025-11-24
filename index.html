@@ -1,136 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Religion Vocabulary Quiz</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 20px;
-    }
-    select {
-      padding: 3px;
-      margin: 0 2px;
-    }
-    button {
-      margin-top: 20px;
-      padding: 8px 15px;
-      font-size: 16px;
-    }
-    #result {
-      margin-top: 20px;
-      font-weight: bold;
-      font-size: 18px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Religion Vocabulary Quiz</h1>
-
-  <p>
-    In most of Europe, the Middle East and North Africa during the days of Jesus the Romans were the main 
-    <select>
-      <option value="">--Choose--</option>
-      <option value="empire">empire</option>
-      <option value="gospel">gospel</option>
-      <option value="epistle">epistle</option>
-      <option value="incarnation">incarnation</option>
-      <option value="messiah">messiah</option>
-      <option value="conscience">conscience</option>
-      <option value="mortal sin">mortal sin</option>
-      <option value="venial sin">venial sin</option>
-      <option value="parable">parable</option>
-      <option value="pharisee">pharisee</option>
-      <option value="grace">grace</option>
-      <option value="beatitudes">beatitudes</option>
-      <option value="almsgiving">almsgiving</option>
-      <option value="virtue">virtue</option>
-      <option value="morality">morality</option>
-      <option value="intercession">intercession</option>
-      <option value="resurrection">resurrection</option>
-      <option value="paschal">paschal</option>
-      <option value="advocate">advocate</option>
-      <option value="trinity">trinity</option>
-    </select>, and dominant power in the world. Many people from many lands and cultures lived under the rule of one powerful leader, the Caesar. In the Roman province of Judea, the prophet Jesus of Nazareth spread his teachings about the 
-    <select>
-      <option value="">--Choose--</option>
-      <option value="empire">empire</option>
-      <option value="gospel">gospel</option>
-      <option value="epistle">epistle</option>
-      <option value="incarnation">incarnation</option>
-      <option value="messiah">messiah</option>
-      <option value="conscience">conscience</option>
-      <option value="mortal sin">mortal sin</option>
-      <option value="venial sin">venial sin</option>
-      <option value="parable">parable</option>
-      <option value="pharisee">pharisee</option>
-      <option value="grace">grace</option>
-      <option value="beatitudes">beatitudes</option>
-      <option value="almsgiving">almsgiving</option>
-      <option value="virtue">virtue</option>
-      <option value="morality">morality</option>
-      <option value="intercession">intercession</option>
-      <option value="resurrection">resurrection</option>
-      <option value="paschal">paschal</option>
-      <option value="advocate">advocate</option>
-      <option value="trinity">trinity</option>
-    </select>, that is the Good News of the Kingdom of God. Later Early Christians told and wrote the story of his life, death, and resurrection. They also communicated by writing letters or 
-    <select>
-      <option value="">--Choose--</option>
-      <option value="empire">empire</option>
-      <option value="gospel">gospel</option>
-      <option value="epistle">epistle</option>
-      <option value="incarnation">incarnation</option>
-      <option value="messiah">messiah</option>
-      <option value="conscience">conscience</option>
-      <option value="mortal sin">mortal sin</option>
-      <option value="venial sin">venial sin</option>
-      <option value="parable">parable</option>
-      <option value="pharisee">pharisee</option>
-      <option value="grace">grace</option>
-      <option value="beatitudes">beatitudes</option>
-      <option value="almsgiving">almsgiving</option>
-      <option value="virtue">virtue</option>
-      <option value="morality">morality</option>
-      <option value="intercession">intercession</option>
-      <option value="resurrection">resurrection</option>
-      <option value="paschal">paschal</option>
-      <option value="advocate">advocate</option>
-      <option value="trinity">trinity</option>
-    </select>s to guide and encourage communities of believers.
-  </p>
-
-  <!-- You can continue adding the remaining paragraphs with the same pattern -->
-
-  <button onclick="checkAnswers()">Check Answers</button>
-  <p id="result"></p>
-
-  <script>
-    // Lowercase answers to match lowercase values
-    const answers = [
-      "empire","gospel","epistle","incarnation","messiah","conscience",
-      "mortal sin","venial sin","parable","pharisee","grace","beatitudes",
-      "almsgiving","virtue","morality","intercession","resurrection","paschal",
-      "advocate","trinity"
-    ];
-
-    function checkAnswers() {
-      const selects = document.querySelectorAll("select");
-      let correct = 0;
-      selects.forEach((sel, i) => {
-        if (sel.value.trim().toLowerCase() === answers[i]) {
-          sel.style.border = "2px solid green";
-          correct++;
-        } else {
-          sel.style.border = "2px solid red";
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Religion Recess Room</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font family -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f3e8; /* Soft, light background */
         }
-      });
-      document.getElementById("result").textContent =
-        `You got ${correct} out of ${answers.length} correct.`;
-    }
-  </script>
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+
+    <!-- Header / Navigation -->
+    <header class="bg-indigo-700 shadow-xl sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold text-white tracking-tight">
+                <span class="text-yellow-300">R</span>eligion <span class="text-yellow-300">R</span>ecess <span class="text-yellow-300">R</span>oom
+            </h1>
+            <nav>
+                <a href="#welcome" class="text-white hover:text-yellow-300 transition duration-150 ease-in-out font-medium mx-3 hidden sm:inline-block">Home</a>
+                <a href="#features" class="text-white hover:text-yellow-300 transition duration-150 ease-in-out font-medium mx-3 hidden sm:inline-block">Activities</a>
+                <button class="bg-yellow-400 text-indigo-900 font-bold py-2 px-4 rounded-lg shadow-md hover:bg-yellow-300 transition duration-150 ease-in-out ml-4">
+                    Sign Up
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main class="flex-grow">
+        <section id="welcome" class="py-16 md:py-24 bg-indigo-500 text-white shadow-inner">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Title -->
+                    <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+                        Welcome to the <span class="text-yellow-300">Religion Recess Room!</span>
+                    </h2>
+                    <!-- Subtitle/Description -->
+                    <p class="text-xl md:text-2xl mb-10 opacity-90 font-medium">
+                        A fun and interactive website where students can learn about religion while playing educational games.
+                    </p>
+                    <!-- Call to Action Button -->
+                    <a href="#features" class="inline-block bg-yellow-400 text-indigo-900 text-xl font-extrabold py-4 px-10 rounded-full shadow-lg hover:bg-yellow-300 hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105">
+                        Start Learning & Playing!
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features/Activities Section -->
+        <section id="features" class="py-16 md:py-20 bg-f7f3e8">
+            <div class="container mx-auto px-4">
+                <h3 class="text-4xl font-bold text-center text-indigo-800 mb-12">
+                    Explore, Learn, and Have Fun!
+                </h3>
+                
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    
+                    <!-- Activity Card 1: Quizzes -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 border-b-4 border-yellow-500">
+                        <div class="text-5xl mb-4 text-center text-yellow-500">
+                            <!-- Icon: Lightbulb/Quiz -->
+                            💡
+                        </div>
+                        <h4 class="text-2xl font-semibold text-indigo-800 mb-3 text-center">Interactive Quizzes</h4>
+                        <p class="text-gray-600 mb-4">
+                            Test your knowledge with challenging and engaging multiple-choice quizzes on different faiths and historical figures. Instant feedback helps you learn as you go!
+                        </p>
+                        <a href="#" class="text-indigo-600 hover:text-yellow-600 font-bold flex items-center justify-center">
+                            Start Quiz <span class="ml-1">&rarr;</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Activity Card 2: Puzzles -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 border-b-4 border-teal-500">
+                        <div class="text-5xl mb-4 text-center text-teal-500">
+                            <!-- Icon: Puzzle Piece -->
+                            🧩
+                        </div>
+                        <h4 class="text-2xl font-semibold text-indigo-800 mb-3 text-center">Educational Puzzles</h4>
+                        <p class="text-gray-600 mb-4">
+                            Solve visual and concept-matching puzzles to reinforce important vocabulary, symbols, and beliefs in a hands-on, playful way.
+                        </p>
+                        <a href="#" class="text-indigo-600 hover:text-teal-600 font-bold flex items-center justify-center">
+                            Play Puzzle <span class="ml-1">&rarr;</span>
+                        </a>
+                    </div>
+
+                    <!-- Activity Card 3: Activities -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 border-b-4 border-pink-500">
+                        <div class="text-5xl mb-4 text-center text-pink-500">
+                            <!-- Icon: Book/Open Hands -->
+                            🙏
+                        </div>
+                        <h4 class="text-2xl font-semibold text-indigo-800 mb-3 text-center">Discovery Activities</h4>
+                        <p class="text-gray-600 mb-4">
+                            Explore dynamic content, short video clips, and interactive timelines to discover the origins and traditions of major world religions.
+                        </p>
+                        <a href="#" class="text-indigo-600 hover:text-pink-600 font-bold flex items-center justify-center">
+                            Explore Content <span class="ml-1">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Banner -->
+        <section class="bg-indigo-700 py-12">
+            <div class="container mx-auto px-4 text-center">
+                <p class="text-2xl md:text-3xl font-bold text-yellow-300 mb-4">
+                    Ready to learn about the world's religions in a new way?
+                </p>
+                <button class="bg-pink-500 text-white text-lg font-extrabold py-3 px-8 rounded-lg shadow-lg hover:bg-pink-600 transition duration-300 ease-in-out transform hover:scale-105">
+                    Join the Recess Room Today!
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-indigo-900 text-white py-6 mt-auto">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>&copy; 2025 Religion Recess Room. Education for all ages.</p>
+            <div class="mt-2 text-indigo-300">
+                <a href="#" class="mx-2 hover:text-white">Privacy Policy</a> |
+                <a href="#" class="mx-2 hover:text-white">Terms of Use</a> |
+                <a href="#" class="mx-2 hover:text-white">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
