@@ -4,137 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Religion Recess Room</title>
-    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use Inter font family -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f7f3e8; /* Soft, light background */
         }
+        
+        /* Custom Lightbox Vibe */
+        #lightbox.active { display: flex; }
+        .meme-card:hover img { transform: scale(1.05); }
     </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased">
 
-    <!-- Header / Navigation -->
     <header class="bg-indigo-700 shadow-xl sticky top-0 z-10">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <h1 class="text-3xl font-extrabold text-white tracking-tight">
                 <span class="text-yellow-300">R</span>eligion <span class="text-yellow-300">R</span>ecess <span class="text-yellow-300">R</span>oom
             </h1>
             <nav>
-                <a href="#welcome" class="text-white hover:text-yellow-300 transition duration-150 ease-in-out font-medium mx-3 hidden sm:inline-block">Home</a>
-                <a href="#features" class="text-white hover:text-yellow-300 transition duration-150 ease-in-out font-medium mx-3 hidden sm:inline-block">Activities</a>
-                <button class="bg-yellow-400 text-indigo-900 font-bold py-2 px-4 rounded-lg shadow-md hover:bg-yellow-300 transition duration-150 ease-in-out ml-4">
+                <a href="#welcome" class="text-white hover:text-yellow-300 transition duration-150 font-medium mx-3 hidden sm:inline-block">Home</a>
+                <a href="#features" class="text-white hover:text-yellow-300 transition duration-150 font-medium mx-3 hidden sm:inline-block">Activities</a>
+                <a href="#meme-section" class="text-white hover:text-yellow-300 transition duration-150 font-medium mx-3 hidden sm:inline-block">Memes</a>
+                <button class="bg-yellow-400 text-indigo-900 font-bold py-2 px-4 rounded-lg shadow-md hover:bg-yellow-300 transition ml-4">
                     Sign Up
                 </button>
             </nav>
         </div>
     </header>
 
-    <!-- Main Hero Section -->
     <main class="flex-grow">
         <section id="welcome" class="py-16 md:py-24 bg-indigo-500 text-white shadow-inner">
             <div class="container mx-auto px-4 text-center">
                 <div class="max-w-4xl mx-auto">
-                    <!-- Title -->
                     <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
                         Welcome to the <span class="text-yellow-300">Religion Recess Room!</span>
                     </h2>
-                    <!-- Subtitle/Description -->
                     <p class="text-xl md:text-2xl mb-10 opacity-90 font-medium">
                         A fun and interactive website where students can learn about religion while playing educational games.
                     </p>
-                    <!-- Call to Action Button -->
-                    <a href="#features" class="inline-block bg-yellow-400 text-indigo-900 text-xl font-extrabold py-4 px-10 rounded-full shadow-lg hover:bg-yellow-300 hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105">
+                    <a href="#features" class="inline-block bg-yellow-400 text-indigo-900 text-xl font-extrabold py-4 px-10 rounded-full shadow-lg hover:bg-yellow-300 hover:shadow-xl transition transform hover:scale-105">
                         Start Learning & Playing!
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- Features/Activities Section -->
         <section id="features" class="py-16 md:py-20 bg-f7f3e8">
             <div class="container mx-auto px-4">
-                <h3 class="text-4xl font-bold text-center text-indigo-800 mb-12">
-                    Explore, Learn, and Have Fun!
-                </h3>
-                
+                <h3 class="text-4xl font-bold text-center text-indigo-800 mb-12">Explore, Learn, and Have Fun!</h3>
                 <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    
-                    <!-- Activity Card 1: Quizzes -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 border-b-4 border-yellow-500">
-                        <div class="text-5xl mb-4 text-center text-yellow-500">
-                            <!-- Icon: Lightbulb/Quiz -->
-                            💡
-                        </div>
-                        <h4 class="text-2xl font-semibold text-indigo-800 mb-3 text-center">Interactive Quizzes</h4>
-                        <p class="text-gray-600 mb-4">
-                            Test your knowledge with challenging and engaging multiple-choice quizzes on different faiths and historical figures. Instant feedback helps you learn as you go!
-                        </p>
-                        <a href="#" class="text-indigo-600 hover:text-yellow-600 font-bold flex items-center justify-center">
-                            Start Quiz <span class="ml-1">&rarr;</span>
-                        </a>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-b-4 border-yellow-500 text-center">
+                        <div class="text-5xl mb-4">💡</div>
+                        <h4 class="text-2xl font-semibold text-indigo-800 mb-3">Interactive Quizzes</h4>
+                        <p class="text-gray-600">Test your knowledge with challenging and engaging quizzes.</p>
                     </div>
-                    
-                    <!-- Activity Card 2: Puzzles -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 border-b-4 border-teal-500">
-                        <div class="text-5xl mb-4 text-center text-teal-500">
-                            <!-- Icon: Puzzle Piece -->
-                            🧩
-                        </div>
-                        <h4 class="text-2xl font-semibold text-indigo-800 mb-3 text-center">Educational Puzzles</h4>
-                        <p class="text-gray-600 mb-4">
-                            Solve visual and concept-matching puzzles to reinforce important vocabulary, symbols, and beliefs in a hands-on, playful way.
-                        </p>
-                        <a href="#" class="text-indigo-600 hover:text-teal-600 font-bold flex items-center justify-center">
-                            Play Puzzle <span class="ml-1">&rarr;</span>
-                        </a>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-b-4 border-teal-500 text-center">
+                        <div class="text-5xl mb-4">🧩</div>
+                        <h4 class="text-2xl font-semibold text-indigo-800 mb-3">Educational Puzzles</h4>
+                        <p class="text-gray-600">Solve visual puzzles to reinforce vocabulary and symbols.</p>
                     </div>
-
-                    <!-- Activity Card 3: Activities -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 border-b-4 border-pink-500">
-                        <div class="text-5xl mb-4 text-center text-pink-500">
-                            <!-- Icon: Book/Open Hands -->
-                            🙏
-                        </div>
-                        <h4 class="text-2xl font-semibold text-indigo-800 mb-3 text-center">Discovery Activities</h4>
-                        <p class="text-gray-600 mb-4">
-                            Explore dynamic content, short video clips, and interactive timelines to discover the origins and traditions of major world religions.
-                        </p>
-                        <a href="#" class="text-indigo-600 hover:text-pink-600 font-bold flex items-center justify-center">
-                            Explore Content <span class="ml-1">&rarr;</span>
-                        </a>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-b-4 border-pink-500 text-center">
+                        <div class="text-5xl mb-4">🙏</div>
+                        <h4 class="text-2xl font-semibold text-indigo-800 mb-3">Discovery Activities</h4>
+                        <p class="text-gray-600">Explore dynamic content and interactive timelines.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Call to Action Banner -->
+        <section id="meme-section" class="py-16 bg-white border-t border-gray-200">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h3 class="text-4xl font-bold text-indigo-800">The Meme Gallery</h3>
+                    <p class="text-gray-500 mt-2">Humor meets education. Enjoy our 40 collection artifacts.</p>
+                </div>
+                
+                <div id="meme-grid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
+                    </div>
+            </div>
+        </section>
+
         <section class="bg-indigo-700 py-12">
             <div class="container mx-auto px-4 text-center">
-                <p class="text-2xl md:text-3xl font-bold text-yellow-300 mb-4">
-                    Ready to learn about the world's religions in a new way?
-                </p>
-                <button class="bg-pink-500 text-white text-lg font-extrabold py-3 px-8 rounded-lg shadow-lg hover:bg-pink-600 transition duration-300 ease-in-out transform hover:scale-105">
+                <p class="text-2xl md:text-3xl font-bold text-yellow-300 mb-4">Ready to learn about the world's religions in a new way?</p>
+                <button class="bg-pink-500 text-white text-lg font-extrabold py-3 px-8 rounded-lg shadow-lg hover:bg-pink-600 transition transform hover:scale-105">
                     Join the Recess Room Today!
                 </button>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-indigo-900 text-white py-6 mt-auto">
         <div class="container mx-auto px-4 text-center text-sm">
-            <p>&copy; 2025 Religion Recess Room. Education for all ages.</p>
-            <div class="mt-2 text-indigo-300">
-                <a href="#" class="mx-2 hover:text-white">Privacy Policy</a> |
-                <a href="#" class="mx-2 hover:text-white">Terms of Use</a> |
-                <a href="#" class="mx-2 hover:text-white">Contact Us</a>
-            </div>
+            <p>&copy; 2026 Religion Recess Room. Education for all ages.</p>
         </div>
     </footer>
 
+    <div id="lightbox" class="fixed inset-0 bg-black/90 z-[100] hidden items-center justify-center p-4 cursor-zoom-out backdrop-blur-sm" onclick="closeMeme()">
+        <img id="featured-meme" src="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl border-4 border-yellow-400 transform transition-transform duration-300 scale-95" alt="Enlarged Meme">
+    </div>
+
+    <script>
+        const grid = document.getElementById('meme-grid');
+        const lightbox = document.getElementById('lightbox');
+        const featuredImg = document.getElementById('featured-meme');
+        
+        const totalMemes = 40; 
+        const extension = ".jpg"; 
+
+        // Generate the 40 memes using Tailwind classes
+        for (let i = 1; i <= totalMemes; i++) {
+            const card = document.createElement('div');
+            card.className = "meme-card group relative bg-indigo-100 rounded-lg overflow-hidden cursor-pointer border-2 border-transparent hover:border-yellow-400 transition-all duration-300 shadow-sm hover:shadow-xl";
+            
+            card.innerHTML = `
+                <img src="meme${i}${extension}" 
+                     alt="Meme ${i}" 
+                     loading="lazy" 
+                     class="w-full aspect-square object-cover transition-transform duration-500" 
+                     onclick="openMeme(this.src)">
+                <div class="absolute bottom-0 left-0 right-0 bg-indigo-900/80 text-white text-[10px] py-1 text-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    MEME #${String(i).padStart(2, '0')}
+                </div>
+            `;
+            grid.appendChild(card);
+        }
+
+        function openMeme(src) {
+            featuredImg.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => { featuredImg.classList.remove('scale-95'); }, 10);
+        }
+
+        function closeMeme() {
+            featuredImg.classList.add('scale-95');
+            setTimeout(() => {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                featuredImg.src = "";
+            }, 200);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") closeMeme();
+        });
+    </script>
 </body>
 </html>
