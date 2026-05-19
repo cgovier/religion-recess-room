@@ -75,6 +75,132 @@
             </div>
         </section>
 
+        <section id="game-section" class="py-16 bg-indigo-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-indigo-700">
+            
+            <div class="bg-indigo-700 p-6 text-white text-center">
+                <h3 class="text-3xl font-black tracking-tight uppercase">The Religion Blitz</h3>
+                <p class="opacity-80">Can you name the 8 most practiced religions in the world?</p>
+            </div>
+
+            <div class="flex justify-around bg-indigo-100 p-4 font-mono text-2xl font-bold text-indigo-900 border-b-2 border-indigo-200">
+                <div id="timer">01:00</div>
+                <div id="score">0/8</div>
+            </div>
+
+            <div class="p-8 text-center">
+                <input type="text" id="guess-input" placeholder="Start typing..." 
+                    class="w-full max-w-md p-4 text-xl border-4 border-indigo-200 rounded-xl focus:outline-none focus:border-yellow-400 transition-all text-center uppercase font-bold"
+                    disabled>
+                
+                <div class="mt-4">
+                    <button id="start-btn" class="bg-yellow-400 hover:bg-yellow-300 text-indigo-900 font-black py-3 px-10 rounded-full shadow-lg transition transform hover:scale-105 active:scale-95">
+                        START GAME
+                    </button>
+                </div>
+            </div>
+
+            <div id="answer-grid" class="grid grid-cols-2 gap-4 p-8 bg-gray-50">
+                <div class="h-12 bg-gray-200 border-2 border-dashed border-gray-400 rounded flex items-center justify-center font-bold text-indigo-700 uppercase" data-answer="Christianity">?</div>
+                <div class="h-12 bg-gray-200 border-2 border-dashed border-gray-400 rounded flex items-center justify-center font-bold text-indigo-700 uppercase" data-answer="Islam">?</div>
+                <div class="h-12 bg-gray-200 border-2 border-dashed border-gray-400 rounded flex items-center justify-center font-bold text-indigo-700 uppercase" data-answer="Hinduism">?</div>
+                <div class="h-12 bg-gray-200 border-2 border-dashed border-gray-400 rounded flex items-center justify-center font-bold text-indigo-700 uppercase" data-answer="Buddhism">?</div>
+                <div class="h-12 bg-gray-200 border-2 border-dashed border-gray-400 rounded flex items-center justify-center font-bold text-indigo-700 uppercase" data-answer="Sikhism">?</div>
+                <div class="h-12 bg-gray-200 border-2 border-dashed border-gray-400 rounded flex items-center justify-center font-bold text-indigo-700 uppercase" data-answer="Judaism">?</div>
+                <div class="h-12 bg-gray-200 border-2 border-dashed border-gray-400 rounded flex items-center justify-center font-bold text-indigo-700 uppercase" data-answer="Shinto">?</div>
+                <div class="h-12 bg-gray-200 border-2 border-dashed border-gray-400 rounded flex items-center justify-center font-bold text-indigo-700 uppercase" data-answer="Jainism">?</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const startBtn = document.getElementById('start-btn');
+    const input = document.getElementById('guess-input');
+    const timerDisplay = document.getElementById('timer');
+    const scoreDisplay = document.getElementById('score');
+    const slots = document.querySelectorAll('#answer-grid div');
+
+    let timeLeft = 60;
+    let score = 0;
+    let gameActive = false;
+    let timerInterval;
+
+    const answers = ["CHRISTIANITY", "ISLAM", "HINDUISM", "BUDDHISM", "SIKHISM", "JUDAISM", "SHINTO", "JAINISM"];
+    let found = [];
+
+    function startGame() {
+        gameActive = true;
+        score = 0;
+        found = [];
+        timeLeft = 60;
+        input.disabled = false;
+        input.value = '';
+        input.focus();
+        startBtn.classList.add('hidden');
+        scoreDisplay.innerText = `0/${answers.length}`;
+        
+        // Reset slots
+        slots.forEach(slot => {
+            slot.innerText = '?';
+            slot.className = "h-12 bg-gray-200 border-2 border-dashed border-gray-400 rounded flex items-center justify-center font-bold text-indigo-700 uppercase";
+        });
+
+        timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    function updateTimer() {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        timerDisplay.innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+
+        if (timeLeft <= 0) endGame(false);
+    }
+
+    input.addEventListener('input', (e) => {
+        const guess = e.target.value.toUpperCase().trim();
+        
+        if (answers.includes(guess) && !found.includes(guess)) {
+            found.push(guess);
+            score++;
+            scoreDisplay.innerText = `${score}/${answers.length}`;
+            input.value = ''; // Clear input on correct guess
+            
+            // Reveal in grid
+            slots.forEach(slot => {
+                if (slot.getAttribute('data-answer').toUpperCase() === guess) {
+                    slot.innerText = guess;
+                    slot.className = "h-12 bg-green-100 border-2 border-green-500 rounded flex items-center justify-center font-bold text-green-700 uppercase animate-bounce";
+                }
+            });
+
+            if (score === answers.length) endGame(true);
+        }
+    });
+
+    function endGame(win) {
+        gameActive = false;
+        clearInterval(timerInterval);
+        input.disabled = true;
+        startBtn.classList.remove('hidden');
+        startBtn.innerText = win ? "PLAY AGAIN (YOU WIN!)" : "TRY AGAIN?";
+        
+        if (!win) {
+            // Show missed answers in red
+            slots.forEach(slot => {
+                if (slot.innerText === '?') {
+                    slot.innerText = slot.getAttribute('data-answer');
+                    slot.classList.replace('text-indigo-700', 'text-red-500');
+                }
+            });
+        }
+    }
+
+    startBtn.addEventListener('click', startGame);
+</script>
+
         <section id="meme-section" class="py-16 bg-white border-t border-gray-200">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
